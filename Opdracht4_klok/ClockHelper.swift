@@ -10,4 +10,23 @@ import Foundation
 
 class ClockHelper {
     
+    let formatter: DateFormatter;
+    var currentTime: Array<String> = [] ;
+    
+    init() {
+        formatter = DateFormatter()
+        formatter.dateFormat = "HH:mm"
+    }
+    
+    func getArrayOfWords() -> Array<String> {
+        
+        
+        return currentTime
+    }
+    
+    func getMinutes() {
+        
+    }
+    
+    
 }
