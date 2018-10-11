@@ -1320,7 +1320,6 @@
                         <outletCollection property="wordHet" destination="Rlc-VJ-iG4" collectionClass="NSMutableArray" id="VpR-1C-lkm"/>
                         <outletCollection property="wordVijf" destination="6Qx-X0-EwP" collectionClass="NSMutableArray" id="xjo-Gp-oCJ"/>
                         <outletCollection property="wordVijf" destination="JAZ-T7-rPS" collectionClass="NSMutableArray" id="vgi-yn-sam"/>
-                        <outletCollection property="wordVijf" destination="4t6-87-OoO" collectionClass="NSMutableArray" id="jeJ-nu-arS"/>
                         <outletCollection property="wordVijf" destination="oBC-qr-vbj" collectionClass="NSMutableArray" id="RNN-jE-tFb"/>
                         <outletCollection property="wordTien" destination="yM0-Ne-SXA" collectionClass="NSMutableArray" id="iX5-Qv-i9G"/>
                         <outletCollection property="wordTien" destination="zBH-Lm-cFc" collectionClass="NSMutableArray" id="8VX-V6-DKM"/>
