@@ -10,11 +10,11 @@ import Foundation
 
 class ClockHelper : IntClockHelp {
     
-    var timer: Timer
-    
+    var timer = Timer()
     let formatter: DateFormatter;
     var currentTime: Array<String> = [] ;
     
+    //@available(iOS 10.0, *)
     init() {
         formatter = DateFormatter()
         if #available(iOS 10.0, *) {
@@ -22,7 +22,7 @@ class ClockHelper : IntClockHelp {
                 (timer) in self.sendArray(timer: timer)
             }
         } else {
-            // Fallback on earlier versions
+            timer = Timer()
         }
     }
     
@@ -144,4 +144,5 @@ protocol IntClockHelp {
     var timer: Timer { get set }
     
     func sendArray(timer: Timer) -> Array<String>
+    
 }

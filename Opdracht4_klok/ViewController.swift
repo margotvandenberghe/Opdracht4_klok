@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController, IntClockHelp {
     
-    var timer: Timer
+    var timer = Timer()
     
     @IBOutlet var wordHet: [UILabel]!
     @IBOutlet var wordIs: [UILabel]!
@@ -104,6 +104,7 @@ class ViewController: UIViewController, IntClockHelp {
     
     func sendArray(timer: Timer) -> Array<String> {
         selectWords(arr: clockhelper.sendArray(timer: timer))
+        return clockhelper.sendArray(timer: timer)
     }
 }
 
