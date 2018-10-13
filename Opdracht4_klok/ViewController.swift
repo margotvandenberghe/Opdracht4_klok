@@ -48,8 +48,8 @@ class ViewController: UIViewController, IntClockHelp {
         
         setTimer()
         
-        let longGesture = UILongPressGestureRecognizer(target: self, action: #selector(ViewController.longPress))
-        
+        //let longGesture = UILongPressGestureRecognizer(target: self, action: #selector(ViewController.longPress))
+        let longGesture = UITapGestureRecognizer(target: self, action: #selector(ViewController.longPress))
         btnLongPress.addGestureRecognizer(longGesture)
         
     }
@@ -57,7 +57,7 @@ class ViewController: UIViewController, IntClockHelp {
     func setTimer() {
         sendArray()
         if #available(iOS 10.0, *) {
-            timer = Timer.scheduledTimer(withTimeInterval: 300, repeats: true) {
+            timer = Timer.scheduledTimer(withTimeInterval: 120, repeats: true) {
                 (timer) in self.sendArray()
             }
         } else {
@@ -70,6 +70,8 @@ class ViewController: UIViewController, IntClockHelp {
         alert.addTextField{(textField) in textField.text = "Geef je tijd in als uu:mm bv. 08:30"}
         alert.addAction(UIAlertAction(title: "Annuleer", style: .cancel, handler: {(action: UIAlertAction!) in print("no")} ))
         alert.addAction(UIAlertAction(title: "Bewaar", style: .default, handler: {(action: UIAlertAction!) in print("no")} ))
+        
+        self.present(alert, animated: true, completion: nil)
     }
     
     
