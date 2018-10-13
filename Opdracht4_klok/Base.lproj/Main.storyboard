@@ -786,6 +786,11 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wpS-cn-fXo">
+                                <rect key="frame" x="0.0" y="0.0" width="1366" height="1024"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="b"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.78071876986821498" green="0.44434373197087851" blue="0.6000759449517612" alpha="0.88958815586419748" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -1315,6 +1320,7 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="btnLongPress" destination="wpS-cn-fXo" id="6cE-aZ-er3"/>
                         <outletCollection property="wordHet" destination="kUt-xg-P90" collectionClass="NSMutableArray" id="6pp-aZ-Ipf"/>
                         <outletCollection property="wordHet" destination="Lq2-hR-jz8" collectionClass="NSMutableArray" id="SAl-Bg-BUg"/>
                         <outletCollection property="wordHet" destination="Rlc-VJ-iG4" collectionClass="NSMutableArray" id="VpR-1C-lkm"/>
@@ -1393,6 +1399,7 @@
                         <outletCollection property="wordTien2" destination="cF2-Wc-Cge" collectionClass="NSMutableArray" id="wMG-nF-7jA"/>
                         <outletCollection property="wordTien2" destination="5kX-c6-Oka" collectionClass="NSMutableArray" id="DcH-ap-8P8"/>
                         <outletCollection property="wordTien2" destination="aBm-oz-oBX" collectionClass="NSMutableArray" id="90a-jc-vwD"/>
+                        <outletCollection property="wordVijf" destination="4t6-87-OoO" collectionClass="NSMutableArray" id="0Um-Z1-c4w"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

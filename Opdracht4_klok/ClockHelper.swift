@@ -10,21 +10,24 @@ import Foundation
 
 class ClockHelper : IntClockHelp {
     
-    var timer = Timer()
     let formatter: DateFormatter;
     var currentTime: Array<String> = [] ;
     
-    //@available(iOS 10.0, *)
+//    var timer : Timer {
+//        
+//        if #available(iOS 10.0, *) {
+//            return Timer.scheduledTimer(withTimeInterval: 300, repeats: true) {
+//                (timer) in self.sendArray()
+//            }
+//        } else {
+//            return Timer()
+//        }
+//    }
+    
     init() {
         formatter = DateFormatter()
-        if #available(iOS 10.0, *) {
-            timer = Timer.scheduledTimer(withTimeInterval: 300, repeats: true) {
-                (timer) in self.sendArray(timer: timer)
-            }
-        } else {
-            timer = Timer()
-        }
     }
+    
     
     func getHours () -> Int {
         formatter.dateFormat = "HH"
@@ -45,7 +48,7 @@ class ClockHelper : IntClockHelp {
     }
     
     func getArrayOfWordsMinutes(){
-       switch getMinutes() {
+        switch getMinutes() {
         case 5:
             currentTime.append("VIJF")
             currentTime.append("OVER")
@@ -83,46 +86,81 @@ class ClockHelper : IntClockHelp {
             currentTime.append("VIJF")
             currentTime.append("VOOR")
         case 0:
-            print(0)
+            break
         default:
             break
         }
         
     }
-
+    
     func getArrayOfWordsHours() {
-        
-        switch getHours() {
-        case 1:
-            currentTime.append("EEN")
-        case 2:
-            currentTime.append("TWEE")
-        case 3:
-            currentTime.append("DRIE")
-        case 4:
-            currentTime.append("VIER")
-        case 5:
-            currentTime.append("VIJFUUR")
-        case 6:
-            currentTime.append("ZES")
-        case 7:
-            currentTime.append("ZEVEN")
-        case 8:
-            currentTime.append("ACHT")
-        case 9:
-            currentTime.append("NEGEN")
-        case 10:
-            currentTime.append("TIENUUR")
-        case 11:
-            currentTime.append("ELF")
-        case 12:
-            currentTime.append("TWAALF")
-        default:
-            break
+        if getMinutes() < 30
+        {
+            switch getHours() {
+            case 1:
+                currentTime.append("EEN")
+            case 2:
+                currentTime.append("TWEE")
+            case 3:
+                currentTime.append("DRIE")
+            case 4:
+                currentTime.append("VIER")
+            case 5:
+                currentTime.append("VIJFUUR")
+            case 6:
+                currentTime.append("ZES")
+            case 7:
+                currentTime.append("ZEVEN")
+            case 8:
+                currentTime.append("ACHT")
+            case 9:
+                currentTime.append("NEGEN")
+            case 10:
+                currentTime.append("TIENUUR")
+            case 11:
+                currentTime.append("ELF")
+            case 12:
+                currentTime.append("TWAALF")
+            default:
+                break
+            }
         }
+        else {
+            switch getHours() {
+            case 1:
+                currentTime.append("TWEE")
+            case 2:
+                currentTime.append("DRIE")
+            case 3:
+                currentTime.append("VIER")
+            case 4:
+                currentTime.append("VIJFUUR")
+            case 5:
+                currentTime.append("ZES")
+            case 6:
+                currentTime.append("ZEVEN")
+            case 7:
+                currentTime.append("ACHT")
+            case 8:
+                currentTime.append("NEGEN")
+            case 9:
+                currentTime.append("TIENUUR")
+            case 10:
+                currentTime.append("ELF")
+            case 11:
+                currentTime.append("TWAALF")
+            case 12:
+                currentTime.append("EEN")
+            default:
+                break
+            }
+        }
+//        if getMinutes() == 0 {
+//            currentTime.append("UUR")
+//        }
     }
-
-    func sendArray(timer: Timer) -> Array<String> {
+    
+    func sendArray() -> Array<String> {
         currentTime.append("HET")
         currentTime.append("IS")
         
@@ -141,8 +179,7 @@ class ClockHelper : IntClockHelp {
 
 protocol IntClockHelp {
     
-    var timer: Timer { get set }
     
-    func sendArray(timer: Timer) -> Array<String>
+    func sendArray() -> Array<String>
     
 }

@@ -38,15 +38,41 @@ class ViewController: UIViewController, IntClockHelp {
     @IBOutlet var wordElf: [UILabel]!
     @IBOutlet var wordTwaalf: [UILabel]!
     
+    @IBOutlet weak var btnLongPress: UIButton!
+    
     let clockhelper = ClockHelper()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        sendArray(timer: timer)
+        
+        setTimer()
+        
+        let longGesture = UILongPressGestureRecognizer(target: self, action: #selector(ViewController.longPress))
+        
+        btnLongPress.addGestureRecognizer(longGesture)
+        
     }
     
- 
+    func setTimer() {
+        sendArray()
+        if #available(iOS 10.0, *) {
+            timer = Timer.scheduledTimer(withTimeInterval: 300, repeats: true) {
+                (timer) in self.sendArray()
+            }
+        } else {
+            timer = Timer()
+        }
+    }
+    
+    @objc func longPress() {
+        let alert = UIAlertController(title: "Configuratie", message: "Instellen van wekker", preferredStyle: .alert)
+        alert.addTextField{(textField) in textField.text = "Geef je tijd in als uu:mm bv. 08:30"}
+        alert.addAction(UIAlertAction(title: "Annuleer", style: .cancel, handler: {(action: UIAlertAction!) in print("no")} ))
+        alert.addAction(UIAlertAction(title: "Bewaar", style: .default, handler: {(action: UIAlertAction!) in print("no")} ))
+    }
+    
+    
     func selectWords (arr: Array<String>) {
         for a in arr {
             switch a {
@@ -55,7 +81,7 @@ class ViewController: UIViewController, IntClockHelp {
             case "IS":
                 setInBlack(coll: wordIs)
             case "VIJF":
-                    setInBlack(coll: wordVijf)
+                setInBlack(coll: wordVijf)
             case "TIEN":
                 setInBlack(coll: wordTien)
             case "OVER":
@@ -102,9 +128,9 @@ class ViewController: UIViewController, IntClockHelp {
         }
     }
     
-    func sendArray(timer: Timer) -> Array<String> {
-        selectWords(arr: clockhelper.sendArray(timer: timer))
-        return clockhelper.sendArray(timer: timer)
+    func sendArray() -> Array<String> {
+        selectWords(arr: clockhelper.sendArray())
+        return clockhelper.sendArray()
     }
 }
 
