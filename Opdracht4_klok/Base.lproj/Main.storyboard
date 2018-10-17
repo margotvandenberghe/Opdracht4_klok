@@ -786,13 +786,20 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wpS-cn-fXo">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wpS-cn-fXo">
                                 <rect key="frame" x="0.0" y="0.0" width="1366" height="1024"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="alarmclock" translatesAutoresizingMaskIntoConstraints="NO" id="Mpw-hr-6c2">
+                                <rect key="frame" x="1286" y="30" width="45" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="qO9-oF-U6X"/>
+                                    <constraint firstAttribute="width" constant="45" id="ya4-sm-ruj"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.78071876986821498" green="0.44434373197087851" blue="0.6000759449517612" alpha="0.88958815586419748" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="Mpw-hr-6c2" firstAttribute="leading" secondItem="wpS-cn-fXo" secondAttribute="trailing" constant="-80" id="08U-PL-rjO"/>
                             <constraint firstItem="c24-a6-4pf" firstAttribute="top" secondItem="xbN-lw-3eK" secondAttribute="bottom" constant="32" id="0LW-Np-gNw"/>
                             <constraint firstItem="nAt-vf-9oW" firstAttribute="top" secondItem="xHL-8q-E7g" secondAttribute="bottom" constant="32" id="0er-uU-Qrk"/>
                             <constraint firstItem="2KS-iB-Ueg" firstAttribute="top" secondItem="3Nk-3t-6GR" secondAttribute="bottom" constant="32" id="0oj-MO-8J0"/>
@@ -838,6 +845,7 @@
                             <constraint firstItem="4t6-87-OoO" firstAttribute="leading" secondItem="JAZ-T7-rPS" secondAttribute="trailing" constant="16" id="4uz-BR-spE"/>
                             <constraint firstItem="Tn2-9v-jrV" firstAttribute="width" secondItem="1Jv-no-W9n" secondAttribute="width" id="54n-VF-UsP"/>
                             <constraint firstItem="QkQ-iK-ahQ" firstAttribute="width" secondItem="eOC-8L-MF5" secondAttribute="width" id="5ER-5D-rTq"/>
+                            <constraint firstItem="wpS-cn-fXo" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="5QC-6J-fRG"/>
                             <constraint firstItem="JAZ-T7-rPS" firstAttribute="width" secondItem="KRe-OK-oqP" secondAttribute="width" id="5Ro-CC-i6R"/>
                             <constraint firstItem="JE5-NM-FML" firstAttribute="top" secondItem="KRe-OK-oqP" secondAttribute="bottom" constant="32" id="5nb-do-HcP"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Whb-sj-Ehz" secondAttribute="bottom" constant="64" id="640-iR-rqa"/>
@@ -969,6 +977,7 @@
                             <constraint firstItem="gsI-h7-L4k" firstAttribute="height" secondItem="kUt-xg-P90" secondAttribute="height" id="Krw-lP-eQN"/>
                             <constraint firstItem="xHL-8q-E7g" firstAttribute="height" secondItem="anh-6h-C9i" secondAttribute="height" id="Kuo-0O-LTa"/>
                             <constraint firstItem="nVW-BI-pwM" firstAttribute="top" secondItem="QkQ-iK-ahQ" secondAttribute="bottom" constant="32" id="Kz5-KE-rXy"/>
+                            <constraint firstItem="wpS-cn-fXo" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="L3Z-cs-cq8"/>
                             <constraint firstItem="DWb-HX-7zu" firstAttribute="leading" secondItem="xbN-lw-3eK" secondAttribute="trailing" constant="16" id="L7j-27-dSi"/>
                             <constraint firstItem="Yka-Po-WLe" firstAttribute="width" secondItem="odz-8b-PlS" secondAttribute="width" id="LKG-rZ-8qJ"/>
                             <constraint firstItem="aRY-BO-YAe" firstAttribute="leading" secondItem="KRe-OK-oqP" secondAttribute="trailing" constant="16" id="LL3-YX-Urw"/>
@@ -986,6 +995,7 @@
                             <constraint firstItem="YTo-8U-g2R" firstAttribute="height" secondItem="2Rr-4N-ZF2" secondAttribute="height" id="MTo-nC-Vjc"/>
                             <constraint firstItem="0WJ-Ip-nb8" firstAttribute="leading" secondItem="2KS-iB-Ueg" secondAttribute="trailing" constant="16" id="MZO-zL-fC6"/>
                             <constraint firstItem="9Gd-Bg-0fN" firstAttribute="width" secondItem="K6a-wG-Lgx" secondAttribute="width" id="Mcy-rI-fUr"/>
+                            <constraint firstItem="wpS-cn-fXo" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="MeK-vl-jwO"/>
                             <constraint firstItem="PN4-Y1-4cU" firstAttribute="top" secondItem="HHM-tC-wke" secondAttribute="bottom" constant="32" id="Mmi-SN-BGP"/>
                             <constraint firstItem="qa1-kX-OrN" firstAttribute="top" secondItem="xHL-8q-E7g" secondAttribute="bottom" constant="32" id="N1B-BA-fas"/>
                             <constraint firstItem="MHz-NP-Om6" firstAttribute="leading" secondItem="40N-hK-klQ" secondAttribute="trailing" constant="16" id="N4T-6h-4lf"/>
@@ -1084,6 +1094,7 @@
                             <constraint firstItem="xfc-yh-Pvq" firstAttribute="width" secondItem="jen-Vo-bT7" secondAttribute="width" id="Woi-fX-G8u"/>
                             <constraint firstItem="odz-8b-PlS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="64" id="X6Z-gW-ros"/>
                             <constraint firstItem="WY8-I6-Ivs" firstAttribute="width" secondItem="Utr-0c-IJ6" secondAttribute="width" id="X6b-ek-sNt"/>
+                            <constraint firstItem="wpS-cn-fXo" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="XkT-Hd-QHo"/>
                             <constraint firstItem="Tn2-9v-jrV" firstAttribute="leading" secondItem="XhL-GD-WUa" secondAttribute="trailing" constant="16" id="Xuh-mh-ztv"/>
                             <constraint firstItem="Utr-0c-IJ6" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="32" id="Xux-3m-am4"/>
                             <constraint firstItem="xrH-qq-3Z7" firstAttribute="width" secondItem="jen-Vo-bT7" secondAttribute="width" id="XwQ-sV-nuD"/>
@@ -1215,6 +1226,7 @@
                             <constraint firstItem="odz-8b-PlS" firstAttribute="height" secondItem="Utr-0c-IJ6" secondAttribute="height" id="lVe-Lt-G56"/>
                             <constraint firstItem="5kX-c6-Oka" firstAttribute="width" secondItem="OIF-Bn-t2L" secondAttribute="width" id="mDB-hQ-kM8"/>
                             <constraint firstItem="W0l-7z-xHU" firstAttribute="height" secondItem="nKv-G8-ecb" secondAttribute="height" id="mHa-iR-PhI"/>
+                            <constraint firstItem="Mpw-hr-6c2" firstAttribute="leading" secondItem="wpS-cn-fXo" secondAttribute="trailing" constant="-80" id="mSZ-eV-STZ"/>
                             <constraint firstItem="OIF-Bn-t2L" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="64" id="mgf-H5-Y5E"/>
                             <constraint firstItem="W0l-7z-xHU" firstAttribute="top" secondItem="oza-U7-kAS" secondAttribute="bottom" constant="32" id="mgk-Mx-iqK"/>
                             <constraint firstItem="Whb-sj-Ehz" firstAttribute="height" secondItem="MEP-08-cN6" secondAttribute="height" id="n0y-UJ-PCc"/>
@@ -1287,7 +1299,9 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="OIF-Bn-t2L" secondAttribute="bottom" constant="64" id="vko-VI-MGx"/>
                             <constraint firstItem="chR-HV-5uj" firstAttribute="top" secondItem="PN4-Y1-4cU" secondAttribute="bottom" constant="32" id="vo8-Vk-c5E"/>
                             <constraint firstItem="RoY-jY-v5G" firstAttribute="top" secondItem="yM0-Ne-SXA" secondAttribute="bottom" constant="32" id="w3o-Gw-kKm"/>
+                            <constraint firstItem="wpS-cn-fXo" firstAttribute="top" secondItem="Mpw-hr-6c2" secondAttribute="bottom" constant="-75" id="w80-Pn-xRa"/>
                             <constraint firstItem="kUt-xg-P90" firstAttribute="width" secondItem="Utr-0c-IJ6" secondAttribute="width" id="wOH-dp-dfh"/>
+                            <constraint firstItem="wpS-cn-fXo" firstAttribute="top" secondItem="Mpw-hr-6c2" secondAttribute="bottom" constant="-75" id="wSC-8O-zFS"/>
                             <constraint firstItem="EPx-Dp-fPE" firstAttribute="leading" secondItem="sc3-nW-uke" secondAttribute="trailing" constant="16" id="waU-7T-5eV"/>
                             <constraint firstItem="uCF-J2-2L2" firstAttribute="height" secondItem="Lq2-hR-jz8" secondAttribute="height" id="wl8-pW-kbE"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="RoY-jY-v5G" secondAttribute="trailing" constant="64" id="x03-x9-QDq"/>
@@ -1312,14 +1326,17 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="wSC-8O-zFS"/>
                                 <exclude reference="hRa-eI-kY4"/>
                                 <exclude reference="zGC-QT-VO9"/>
                                 <exclude reference="ntW-Ut-xXn"/>
+                                <exclude reference="mSZ-eV-STZ"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
                         <outlet property="btnLongPress" destination="wpS-cn-fXo" id="6cE-aZ-er3"/>
+                        <outlet property="imgClock" destination="Mpw-hr-6c2" id="46H-XF-7pW"/>
                         <outletCollection property="wordHet" destination="kUt-xg-P90" collectionClass="NSMutableArray" id="6pp-aZ-Ipf"/>
                         <outletCollection property="wordHet" destination="Lq2-hR-jz8" collectionClass="NSMutableArray" id="SAl-Bg-BUg"/>
                         <outletCollection property="wordHet" destination="Rlc-VJ-iG4" collectionClass="NSMutableArray" id="VpR-1C-lkm"/>
@@ -1406,4 +1423,7 @@
             <point key="canvasLocation" x="-78.184480234260604" y="133.59375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="alarmclock" width="512" height="512"/>
+    </resources>
 </document>

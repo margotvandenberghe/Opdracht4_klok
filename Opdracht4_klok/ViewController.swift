@@ -36,6 +36,8 @@ class ViewController: UIViewController, ClockHelperDelegate {
     @IBOutlet var wordElf: [UILabel]!
     @IBOutlet var wordTwaalf: [UILabel]!
     
+    @IBOutlet weak var imgClock: UIImageView!
+    
     @IBOutlet weak var btnLongPress: UIButton!
     
     override func viewDidLoad() {
@@ -43,6 +45,7 @@ class ViewController: UIViewController, ClockHelperDelegate {
         // Do any additional setup after loading the view, typically from a nib.
         ClockHelper(delegate: self)
         
+        imgClock.isHidden = true
         let longGesture = UILongPressGestureRecognizer(target: self, action: #selector(ViewController.longPress))
         btnLongPress.addGestureRecognizer(longGesture)
         
@@ -51,7 +54,7 @@ class ViewController: UIViewController, ClockHelperDelegate {
     @objc func longPress() {
         
         let alert = UIAlertController(title: "Configuratie", message: "Instellen van wekker", preferredStyle: .alert)
-        alert.addTextField{textField in textField.text = "Geef je tijd in als uu:mm bv. 08:30"}
+        alert.addTextField{textField in textField.placeholder = "Geef je tijd in als uu:mm bv. 08:30"}
         alert.addAction(UIAlertAction(title: "Annuleer", style: .cancel, handler: {(action: UIAlertAction!) in print("no")} ))
         
         let textField = alert.textFields![0]
@@ -62,6 +65,41 @@ class ViewController: UIViewController, ClockHelperDelegate {
     }
     
     func checkInputAlarmField(text: String) {
+        if((text.range(of: "([0-1][0-9]:[0-6][0-9])", options: .regularExpression) != nil) == true) {
+            //string past bij het formaat
+            let arr = text.split{$0 == ":"}
+            let uur = Int(arr[0]) ?? 0
+            let min = Int(arr[1]) ?? 0
+            
+            if ((uur <= 12) && (min <= 60)) {
+                //uur is juist, set alarm naar dat uur
+                imgClock.isHidden = false
+                imgClock.backgroundColor = nil
+                print(text)
+            }
+            else {
+                //uur is niet juist
+                imgClock.isHidden = false
+                imgClock.backgroundColor = UIColor.red
+            }
+        }
+        else {
+            
+            if text == "" {
+                imgClock.isHidden = true
+            }
+            else {
+                imgClock.isHidden = false
+                imgClock.backgroundColor = UIColor.red
+            }
+        }
+        
+        
+        //print(text.range(of: "([0-1][0-9]:[0-6][0-9])", options: .regularExpression) != nil)
+        
+    }
+    
+    func setAlarmClockRed() {
         
     }
     
