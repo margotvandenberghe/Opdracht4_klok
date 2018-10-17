@@ -10,6 +10,8 @@ import UIKit
 
 class ViewController: UIViewController, ClockHelperDelegate {
     
+    var alarm: String = ""
+    
     @IBOutlet var wordHet: [UILabel]!
     @IBOutlet var wordIs: [UILabel]!
     
@@ -75,7 +77,7 @@ class ViewController: UIViewController, ClockHelperDelegate {
                 //uur is juist, set alarm naar dat uur
                 imgClock.isHidden = false
                 imgClock.backgroundColor = nil
-                print(text)
+                alarm = text
             }
             else {
                 //uur is niet juist
@@ -96,10 +98,6 @@ class ViewController: UIViewController, ClockHelperDelegate {
         
         
         //print(text.range(of: "([0-1][0-9]:[0-6][0-9])", options: .regularExpression) != nil)
-        
-    }
-    
-    func setAlarmClockRed() {
         
     }
     
@@ -158,8 +156,43 @@ class ViewController: UIViewController, ClockHelperDelegate {
         }
     }
     
+    func setAllWhite() {
+        setWhite(coll: wordHet)
+        setWhite(coll: wordIs)
+        setWhite(coll: wordVijf)
+        setWhite(coll: wordTien)
+        setWhite(coll: wordOver)
+        setWhite(coll: wordVoor)
+        setWhite(coll: wordKwart)
+        setWhite(coll: wordHalf)
+        setWhite(coll: wordEen)
+        setWhite(coll: wordTwee)
+        setWhite(coll: wordDrie)
+        setWhite(coll: wordVier)
+        setWhite(coll: wordVijf2)
+        setWhite(coll: wordZes)
+        setWhite(coll: wordZeven)
+        setWhite(coll: wordAcht)
+        setWhite(coll: wordNegen)
+        setWhite(coll: wordTien2)
+        setWhite(coll: wordElf)
+        setWhite(coll: wordTwaalf)
+    }
+    
+    func setWhite(coll: [UILabel]) {
+        for e in coll {
+            e.textColor = UIColor.black
+        }
+    }
+    
     func updateClock(_ result: Array<String>){
+        checkForAlarm(result)
         selectWords(arr: result)
     }
+    
+    func checkForAlarm(_ arr: Array<String>) {
+        
+    }
+    
 }
 
