@@ -8,9 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, IntClockHelp {
-    
-    var timer = Timer()
+class ViewController: UIViewController, ClockHelperDelegate {
     
     @IBOutlet var wordHet: [UILabel]!
     @IBOutlet var wordIs: [UILabel]!
@@ -40,40 +38,32 @@ class ViewController: UIViewController, IntClockHelp {
     
     @IBOutlet weak var btnLongPress: UIButton!
     
-    let clockhelper = ClockHelper()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        ClockHelper(delegate: self)
         
-        setTimer()
-        
-        //let longGesture = UILongPressGestureRecognizer(target: self, action: #selector(ViewController.longPress))
-        let longGesture = UITapGestureRecognizer(target: self, action: #selector(ViewController.longPress))
+        let longGesture = UILongPressGestureRecognizer(target: self, action: #selector(ViewController.longPress))
         btnLongPress.addGestureRecognizer(longGesture)
         
     }
     
-    func setTimer() {
-        sendArray()
-        if #available(iOS 10.0, *) {
-            timer = Timer.scheduledTimer(withTimeInterval: 120, repeats: true) {
-                (timer) in self.sendArray()
-            }
-        } else {
-            timer = Timer()
-        }
-    }
-    
     @objc func longPress() {
+        
         let alert = UIAlertController(title: "Configuratie", message: "Instellen van wekker", preferredStyle: .alert)
-        alert.addTextField{(textField) in textField.text = "Geef je tijd in als uu:mm bv. 08:30"}
+        alert.addTextField{textField in textField.text = "Geef je tijd in als uu:mm bv. 08:30"}
         alert.addAction(UIAlertAction(title: "Annuleer", style: .cancel, handler: {(action: UIAlertAction!) in print("no")} ))
-        alert.addAction(UIAlertAction(title: "Bewaar", style: .default, handler: {(action: UIAlertAction!) in print("no")} ))
+        
+        let textField = alert.textFields![0]
+        
+        alert.addAction(UIAlertAction(title: "Bewaar", style: .default, handler: {(action: UIAlertAction!) in self.checkInputAlarmField(text: textField.text ?? "")} ))
         
         self.present(alert, animated: true, completion: nil)
     }
     
+    func checkInputAlarmField(text: String) {
+        
+    }
     
     func selectWords (arr: Array<String>) {
         for a in arr {
@@ -130,9 +120,8 @@ class ViewController: UIViewController, IntClockHelp {
         }
     }
     
-    func sendArray() -> Array<String> {
-        selectWords(arr: clockhelper.sendArray())
-        return clockhelper.sendArray()
+    func updateClock(_ result: Array<String>){
+        selectWords(arr: result)
     }
 }
 

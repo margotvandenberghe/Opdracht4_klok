@@ -789,7 +789,6 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wpS-cn-fXo">
                                 <rect key="frame" x="0.0" y="0.0" width="1366" height="1024"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="b"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.78071876986821498" green="0.44434373197087851" blue="0.6000759449517612" alpha="0.88958815586419748" colorSpace="custom" customColorSpace="sRGB"/>

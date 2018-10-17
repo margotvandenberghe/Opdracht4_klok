@@ -8,24 +8,34 @@
 
 import Foundation
 
-class ClockHelper : IntClockHelp {
+protocol ClockHelperDelegate {
     
+    func updateClock(_ result: Array<String>)
+    
+}
+
+class ClockHelper {
+    
+    var delegate: ClockHelperDelegate
     let formatter: DateFormatter;
     var currentTime: Array<String> = [] ;
     
-//    var timer : Timer {
-//        
-//        if #available(iOS 10.0, *) {
-//            return Timer.scheduledTimer(withTimeInterval: 300, repeats: true) {
-//                (timer) in self.sendArray()
-//            }
-//        } else {
-//            return Timer()
-//        }
-//    }
+    var timer = Timer()
     
-    init() {
+    init(delegate: ClockHelperDelegate) {
+        self.delegate = delegate
         formatter = DateFormatter()
+        setTimer()
+    }
+    
+    func setTimer() {
+        if #available(iOS 10.0, *) {
+            timer = Timer.scheduledTimer(withTimeInterval: 10, repeats: true) {
+                (timer) in  self.updateClock(timer)
+            }
+        } else {
+            timer = Timer()
+        }
     }
     
     
@@ -173,13 +183,11 @@ class ClockHelper : IntClockHelp {
         return help
     }
     
+    func updateClock(_ timer: Timer) {
+        delegate.updateClock(sendArray())
+    }
     
     
 }
 
-protocol IntClockHelp {
-    
-    
-    func sendArray() -> Array<String>
-    
-}
+
