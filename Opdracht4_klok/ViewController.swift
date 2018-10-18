@@ -176,7 +176,7 @@ class ViewController: UIViewController, ClockHelperDelegate, AlarmModelDelegate 
     }
     
     func updateClock(_ result: Array<String>){
-        setAllWhite()
+        
         if let a = alarmModel {
             if a.getAlarmTijd() != "" {
                 checkForAlarm(result)
