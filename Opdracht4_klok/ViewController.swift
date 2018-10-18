@@ -8,9 +8,9 @@
 
 import UIKit
 
-class ViewController: UIViewController, ClockHelperDelegate {
+class ViewController: UIViewController, ClockHelperDelegate, AlarmModelDelegate {
     
-    var alarm: String = ""
+    var alarmIsAfgegaanBool: Bool = false
     
     @IBOutlet var wordHet: [UILabel]!
     @IBOutlet var wordIs: [UILabel]!
@@ -42,10 +42,14 @@ class ViewController: UIViewController, ClockHelperDelegate {
     
     @IBOutlet weak var btnLongPress: UIButton!
     
+    var clockhelper: ClockHelper? = nil
+    var alarmModel: AlarmModel? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        ClockHelper(delegate: self)
+        clockhelper = ClockHelper(delegate: self)
+        alarmModel = AlarmModel(delegate: self)
         
         imgClock.isHidden = true
         let longGesture = UILongPressGestureRecognizer(target: self, action: #selector(ViewController.longPress))
@@ -67,37 +71,23 @@ class ViewController: UIViewController, ClockHelperDelegate {
     }
     
     func checkInputAlarmField(text: String) {
-        if((text.range(of: "([0-1][0-9]:[0-6][0-9])", options: .regularExpression) != nil) == true) {
-            //string past bij het formaat
-            let arr = text.split{$0 == ":"}
-            let uur = Int(arr[0]) ?? 0
-            let min = Int(arr[1]) ?? 0
+        if let a = alarmModel {
             
-            if ((uur <= 12) && (min <= 60)) {
-                //uur is juist, set alarm naar dat uur
+            let s = a.checkInputFieldAlarm(text)
+            switch s {
+            case "JUIST":
                 imgClock.isHidden = false
                 imgClock.backgroundColor = nil
-                alarm = text
-            }
-            else {
-                //uur is niet juist
+                a.setAlarmTijd(text)
+            case "FOUT":
                 imgClock.isHidden = false
                 imgClock.backgroundColor = UIColor.red
-            }
-        }
-        else {
-            
-            if text == "" {
+            case "LEEG":
                 imgClock.isHidden = true
-            }
-            else {
+            default:
                 imgClock.isHidden = false
-                imgClock.backgroundColor = UIColor.red
             }
         }
-        
-        
-        //print(text.range(of: "([0-1][0-9]:[0-6][0-9])", options: .regularExpression) != nil)
         
     }
     
@@ -181,17 +171,44 @@ class ViewController: UIViewController, ClockHelperDelegate {
     
     func setWhite(coll: [UILabel]) {
         for e in coll {
-            e.textColor = UIColor.black
+            e.textColor = UIColor.white
         }
     }
     
     func updateClock(_ result: Array<String>){
-        checkForAlarm(result)
+        setAllWhite()
+        if let a = alarmModel {
+            if a.getAlarmTijd() != "" {
+                checkForAlarm(result)
+            }
+        }
         selectWords(arr: result)
     }
     
     func checkForAlarm(_ arr: Array<String>) {
+        if let a = alarmModel {
+            a.checkForAlarm()
+        }
+    }
+    
+    func setAlarmOff(_ result: String) {
+        if alarmIsAfgegaanBool == false {
+            
+            let alert = UIAlertController(title: "ALARM", message: "Het is " + result + " !", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: {(action: UIAlertAction!) in
+                self.alarmIsAfgegaan()} ))
+            
+            self.present(alert, animated: true, completion: nil)
+        }
         
+    }
+    
+    func alarmIsAfgegaan() {
+        alarmIsAfgegaanBool = true
+        if let a = alarmModel {
+            a.setAlarmTijd("")
+        }
+        imgClock.isHidden = true
     }
     
 }

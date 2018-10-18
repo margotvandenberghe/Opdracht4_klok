@@ -30,7 +30,7 @@ class ClockHelper {
     
     func setTimer() {
         if #available(iOS 10.0, *) {
-            timer = Timer.scheduledTimer(withTimeInterval: 10, repeats: true) {
+            timer = Timer.scheduledTimer(withTimeInterval: 5, repeats: true) {
                 (timer) in  self.updateClock(timer)
             }
         } else {

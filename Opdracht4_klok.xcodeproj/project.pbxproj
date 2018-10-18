@@ -12,6 +12,7 @@
 		3F0263A92165FB27001539B9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F0263A72165FB27001539B9 /* Main.storyboard */; };
 		3F0263AB2165FB30001539B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F0263AA2165FB30001539B9 /* Assets.xcassets */; };
 		3F0263AE2165FB30001539B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F0263AC2165FB30001539B9 /* LaunchScreen.storyboard */; };
+		3FF4F1E821786A5200E53DAE /* AlarmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF4F1E721786A5200E53DAE /* AlarmModel.swift */; };
 		D8BA8683216A513800378D21 /* ClockHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BA8682216A513800378D21 /* ClockHelper.swift */; };
 /* End PBXBuildFile section */
 
@@ -23,6 +24,7 @@
 		3F0263AA2165FB30001539B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3F0263AD2165FB30001539B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3F0263AF2165FB30001539B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3FF4F1E721786A5200E53DAE /* AlarmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmModel.swift; sourceTree = "<group>"; };
 		D8BA8682216A513800378D21 /* ClockHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -63,6 +65,7 @@
 				3F0263AC2165FB30001539B9 /* LaunchScreen.storyboard */,
 				3F0263AF2165FB30001539B9 /* Info.plist */,
 				D8BA8682216A513800378D21 /* ClockHelper.swift */,
+				3FF4F1E721786A5200E53DAE /* AlarmModel.swift */,
 			);
 			path = Opdracht4_klok;
 			sourceTree = "<group>";
@@ -139,6 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8BA8683216A513800378D21 /* ClockHelper.swift in Sources */,
+				3FF4F1E821786A5200E53DAE /* AlarmModel.swift in Sources */,
 				3F0263A62165FB27001539B9 /* ViewController.swift in Sources */,
 				3F0263A42165FB27001539B9 /* AppDelegate.swift in Sources */,
 			);
